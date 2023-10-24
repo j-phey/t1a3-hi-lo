@@ -27,17 +27,30 @@ print('\nChoose the order to play your cards...')
 
 while len(played_cards) < 7: # While the players list of played cards is less than 7 cards...
     try: # Try this, and print the except at the bottom if it's not valid
-        entered_card_number = int(input(f'Enter card #{len(played_cards)+1} to play: ')) # Store the players input as an entered_card_number int
+        entered_card_number = int(input(f'\nEnter card #{len(played_cards)+1} to play: ')) # Store the players input as an entered_card_number int
 
-        if 1<= entered_card_number <= 7: # If input is in between 1 and 7 (incl.), add that card to the players hand
-            chosen_number = player_hand[entered_card_number-1]
+        if 1 <= entered_card_number <= 7: # If input is in between 1 and 7 (incl.), add that card to the players hand
+            chosen_card = player_hand[entered_card_number-1]
 
-            if chosen_number in played_cards: # If the input is already in the played cards list, tell the player
+            if chosen_card in played_cards: # If the input is already in the played cards list, tell the player
                 print(f'You have already played that card.')
-
-            else: # Else, if the input is not in the played cards list, add it to their played cards list
-                played_cards.append(chosen_number) 
             
+            elif chosen_card.card_type == 'number': 
+                if len(played_cards) == 0:
+                    played_cards.append(chosen_card)
+                elif played_cards[-1].card_type == 'operator':
+                    played_cards.append(chosen_card)
+                else:
+                    print('Your next card must be an operator.')
+            
+            elif chosen_card.card_type == 'operator':
+                if len(played_cards) > 0 and played_cards[-1].card_type == 'number':
+                    played_cards.append(chosen_card)
+                else:
+                    print('Your next card must be a number.')
+            
+            else:('Your next card must be an operator')
+                
         else: # If input is not between 1 and 7 (incl.), tell the player
             print('\nPlease enter a number from 1 to 7')
     
