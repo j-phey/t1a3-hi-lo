@@ -15,7 +15,7 @@ def deck():
     operator_cards = [Card(operator, 'operator') for operator in ['+', '-', '×', '÷']]
     return number_cards, operator_cards
 
-number_cards, operator_cards = deck() 
+# number_cards, operator_cards = deck() 
 
 # Function for shuffling the deck of cards
 def shuffle_deck(cards_to_shuffle): 
@@ -40,3 +40,5 @@ def deal_cards(player_hand, shuffled_deck):
     
     for card in player_hand:
         shuffled_deck.remove(card)
+
+# Function for displaying the players hand
