@@ -1,5 +1,5 @@
 # --- IMPORT CLASSES, MODULES AND PACKAGES ---
-from functions import Card, deck, shuffle_deck, deal_cards
+from functions import Card, deck, shuffle_deck, deal_cards, calculate_result
 
 # --- CREATE DECK OF CARDS ---
 
@@ -25,6 +25,8 @@ played_cards = [] # Create an empty list for the player to hold their inputted e
 
 print('\nChoose the order to play your cards...')
 
+# --- PERFORM CHECKS ON USER INPUT ---
+
 while len(played_cards) < 7: # While the players list of played cards is less than 7 cards...
     try: # Try this, and print the except at the bottom if it's not valid
         entered_card_number = int(input(f'\nEnter card #{len(played_cards)+1} to play: ')) # Store the players input as an entered_card_number int
@@ -35,15 +37,15 @@ while len(played_cards) < 7: # While the players list of played cards is less th
             if chosen_card in played_cards: # If the input is already in the played cards list, tell the player
                 print(f'You have already played that card.')
             
-            elif chosen_card.card_type == 'number': 
+            elif chosen_card.card_type == 'number': # Ensures that the first card played is a number
                 if len(played_cards) == 0:
                     played_cards.append(chosen_card)
-                elif played_cards[-1].card_type == 'operator':
+                elif played_cards[-1].card_type == 'operator': # Ensures that an operator is played after a number
                     played_cards.append(chosen_card)
                 else:
                     print('Your next card must be an operator.')
             
-            elif chosen_card.card_type == 'operator':
+            elif chosen_card.card_type == 'operator': # Ensures that a number is played after an operator
                 if len(played_cards) > 0 and played_cards[-1].card_type == 'number':
                     played_cards.append(chosen_card)
                 else:
@@ -57,9 +59,16 @@ while len(played_cards) < 7: # While the players list of played cards is less th
     except: # Checks for valid int
         print('\nPlease only enter valid numbers from 1 to 7')
 
+# --- DISPLAY EQUATION ---
+
 print('\nThis is your equation:')
 for card in played_cards:
-    print(f'{card.value}', end=' ')
+    equation = print(f'{card.value}', end=' ')
+
+# --- CALCULATE EQUATION RESULT---
+
+result = calculate_result(" ".join(str(card.value) for card in played_cards))
+print(f'\nResult: {result}')
 
 
 # ------- Print statements to test output ---------
