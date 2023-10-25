@@ -15,11 +15,27 @@ shuffled_deck = shuffle_deck(deck_of_cards)
 player_hand = [] # Creates an empty hand or list for the player
 deal_cards(player_hand, shuffled_deck) # From the now shuffled deck, deals the cards into the players hand 
 
-# --- GET USER INPUT ---
-
 print('\nYour current hand:\n')
 for index, card in enumerate(player_hand):
     print(f'{index+1}: {card.value}')
+
+# --- USER INPUT: HI OR LO CHOICE ---
+
+print('\nMake an equation closest to Hi (20) or Lo (1)')
+hilo_choice = input('Type Hi or Lo and hit Enter: ')
+
+while hilo_choice.lower() not in ['hi', 'lo']: # lower() ensures that Hi/hi and Lo/lo are accepted as input
+    hilo_choice = input('Type Hi or Lo and hit Enter: ')
+
+hi = 20
+lo = 1
+
+if hilo_choice.lower() == 'hi':
+    target = hi
+else:
+    target = lo
+
+# --- USER INPUT: ORDER OF CARDS
 
 played_cards = [] # Create an empty list for the player to hold their inputted equation
 
@@ -41,7 +57,12 @@ while len(played_cards) < 7: # While the players list of played cards is less th
                 if len(played_cards) == 0:
                     played_cards.append(chosen_card)
                 elif played_cards[-1].card_type == 'operator': # Ensures that an operator is played after a number
-                    played_cards.append(chosen_card)
+
+                    if chosen_card.value == 0 and played_cards[-1].value == '÷': # Ensures that 0 cannot be played after a division symbol
+                        print('Cannot divide by zero')
+                    else:
+                        played_cards.append(chosen_card)
+
                 else:
                     print('Your next card must be an operator.')
             
@@ -69,7 +90,6 @@ for card in played_cards:
 
 result = calculate_result(" ".join(str(card.value) for card in played_cards))
 print(f'\nResult: {result}')
-
 
 # ------- Print statements to test output ---------
 # print('Number cards:')

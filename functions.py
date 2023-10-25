@@ -1,4 +1,5 @@
 import random # Importing in-built Random Python module for shuffling the cards
+from sympy import sympify
 
 # --- CLASSES ---
 
@@ -41,43 +42,42 @@ def deal_cards(player_hand, shuffled_deck):
     for card in player_hand:
         shuffled_deck.remove(card)
 
-# # Function for calculating the result of a created equation
-# def calculate_result(equation):
-#     try: 
-#         equation = equation.replace('×', '*').replace('÷', '/')
-
-#         result = eval(equation)
-#         if result == float("inf") or result == float("-inf"):
-#             return 0  # Division by zero results in 0
-#         return result
-#     except ZeroDivisionError:
-#         return 0  # Division by zero results in 0
-#     except:
-#         return 'This is not a valid equation'
-
-# Function for calculating the result of a created equation
-def calculate_result(equation):
-    equation = equation.replace('×', '*').replace('÷', '/') # Replace '×' and '÷' with '*' and '/'
-    parts = equation.split() # Using split() to break up the equation into different parts to handle / 0. split() will use spaces as the delimiter
-    result = 0 # Set default result
-    current_operator = '+' # Set default operator to start with
+# [ARCHIVED] Function for calculating the result of a created equation
+# def calculate_result2(equation):
+#     equation = equation.replace('×', '*').replace('÷', '/') # Replace '×' and '÷' with '*' and '/'
+#     parts = equation.split() # Using split() to break up the equation into different parts to handle / 0. split() will use spaces as the delimiter
+#     result = 0 # Set default result
+#     current_operator = '+' # Set default operator to start with
     
-    for part in parts:
-        if part in ('+', '-', '*', '/'): # If the current part is up to an operator, 
-            current_operator = part # ... assign it to current_operator
+#     for part in parts:
+
+#         if part in ('+', '-', '*', '/'): # If the current part is up to an operator, 
+#             current_operator = part # ... assign it to current_operator
+#         else:
+#             number = float(part) # ... Otherwise assign it the current number as a float
+#             if current_operator == '+':
+#                 result += number
+#             elif current_operator == '-':
+#                 result -= number
+#             elif current_operator == '*':
+#                 result *= number
+#             elif current_operator == '/': # Once the code reaches a division operator
+#                 if number == 0: # If the proceeding number is 0,
+#                     result = 0 # ... make the result 0
+#                 else:
+#                     result /= number # Otherwise divide the number as usual
+
+    # return result
+
+# [NEW] Function for calculating the result of a created equation
+def calculate_result(equation): 
+    equation = equation.replace('×', '*').replace('÷', '/') # Replace '×' and '÷' with '*' and '/' so the evaluation makes sense in Python
+
+    try:
+        result = eval(equation) # Use the eval() function to calculate the equation as a string
+        if isinstance(result, (int, float)): # Checking if the result is either an int or float
+            return round(float(result), 2) # Round the result to two decimal places
         else:
-            number = float(part) # ... Otherwise assign it the current number as a float
-            if current_operator == '+':
-                result += number
-            elif current_operator == '-':
-                result -= number
-            elif current_operator == '*':
-                result *= number
-            elif current_operator == '/': # Once the code reaches a division operator
-                if number == 0: # If the proceeding number is 0,
-                    result = 0 # ... make the result 0
-                else:
-                    result /= number # Otherwise divide the number as usual
-
-    return result
-
+            return 'This is not a valid result. Please try again.'
+    except:
+        return 'This is not a valid equation'
