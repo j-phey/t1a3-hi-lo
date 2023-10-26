@@ -1,4 +1,4 @@
-import random # Importing in-built Random Python module for shuffling the cards
+import random # Importing in-built Random Python module for shuffling the cards (package 1)
 
 # --- CLASSES ---
 

@@ -7,6 +7,8 @@
 
 ### How to install
 
+- pip install colorama
+
 ### Implementation Plan
 
 - I used Linear

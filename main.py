@@ -1,8 +1,12 @@
 # --- IMPORT CLASSES, MODULES AND PACKAGES ---
 from functions import Card, deck, shuffle_deck, deal_cards, calculate_result, calculate_score, load_high_score
-import sys
+from rich import * # Importing rich for further text formatting (package #2)
+from rich.console import Console
+from colorama import Fore, Back, Style, init # Importing colorama to colour input text (package #3)
+init()
 
 # --- DEFINING VARIABLES ---
+console = Console()
 high_score = load_high_score()
 equation_display = ""
 
@@ -22,15 +26,15 @@ deal_cards(player_hand, shuffled_deck) # From the now shuffled deck, deals the c
 
 print('\nYour current hand:\n')
 for index, card in enumerate(player_hand):
-    print(f'{index+1}: {card.value}')
+    console.print(f'{index+1}: {card.value}', highlight=False) # Prevent rich from colouring the index numbers
 
 # --- USER INPUT: HI OR LO CHOICE ---
 
-print('\nMake an equation closest to Hi (20) or Lo (1)')
-hilo_choice = input('Type Hi or Lo and hit Enter: ')
+print('\nMake an equation closest to [bold cyan]Hi (20)[/bold cyan] or [bold yellow]Lo (1)[/bold yellow]')
+hilo_choice = input('Type ' + Fore.CYAN + 'Hi ' + Style.RESET_ALL + 'or ' + Fore.YELLOW + 'Lo ' + Style.RESET_ALL + 'and hit Enter: ')
 
 while hilo_choice.lower() not in ['hi', 'lo']: # lower() ensures that Hi/hi and Lo/lo are accepted as input
-    hilo_choice = input('Type Hi or Lo and hit Enter: ')
+    hilo_choice = input('Type ' + Fore.CYAN + 'Hi ' + Style.RESET_ALL + 'or ' + Fore.YELLOW + 'Lo ' + Style.RESET_ALL + 'and hit Enter: ')
 
 hi = 20
 lo = 1
@@ -44,7 +48,7 @@ else:
 
 played_cards = [] # Create an empty list for the player to hold their inputted equation
 
-print('\nChoose the order to play your cards...')
+print(f'\nYou chose [bold magenta]{hilo_choice}[/bold magenta]! Choose the order to play your cards..')
 
 # --- PERFORM CHECKS ON USER INPUT ---
 
