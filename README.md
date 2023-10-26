@@ -27,7 +27,7 @@
 ### Description
 Create a card game that focuses on problem solving and maths, where a player will attempt to rearrange a dealt hand of number cards and operators to create an equation that is closest to 20 or 1
 
-### Setup
+### How to play
 - The player will be handed seven cards, which consist of:
  - Four number cards (randomly chosen from 0 to 10)
  - Three operator cards (randomly chosen from +, -, ×, ÷) 
