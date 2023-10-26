@@ -1,8 +1,10 @@
 # --- IMPORT CLASSES, MODULES AND PACKAGES ---
 from functions import Card, deck, shuffle_deck, deal_cards, calculate_result, calculate_score, load_high_score
+import sys
 
 # --- DEFINING VARIABLES ---
-high_score = 0
+high_score = load_high_score()
+equation_display = ""
 
 # --- CREATE DECK OF CARDS ---
 
@@ -52,6 +54,7 @@ while len(played_cards) < 7: # While the players list of played cards is less th
         
         if user_input.lower() == '/reset': # Allow the user to /reset the current equation at any point
             played_cards = []
+            equation_display = "" # Resets the equation being displayed
             print('Equation reset. You can start again.')
             continue
 
@@ -83,6 +86,10 @@ while len(played_cards) < 7: # While the players list of played cards is less th
                     print('Your next card must be a number.')
             
             else:('Your next card must be an operator')
+
+            # Updating the current equation being displayed
+            current_equation = " ".join(str(card.value) for card in played_cards)
+            equation_display = print(f'\nCurrent equation: {current_equation}')
                 
         else: # If input is not between 1 and 7 (incl.), tell the player
             print('\nPlease enter a number from 1 to 7')
@@ -90,9 +97,10 @@ while len(played_cards) < 7: # While the players list of played cards is less th
     except: # Checks for valid int
         print('\nPlease only enter valid numbers from 1 to 7')
 
+
 # --- DISPLAY EQUATION ---
 
-print('\nThis is your equation:')
+print('\nThis is your equation:\n')
 for card in played_cards:
     equation = print(f'{card.value}', end=' ')
 
@@ -105,8 +113,8 @@ result = calculate_result(" ".join(str(card.value) for card in played_cards))
 difference = abs(result - target) # Want difference to be an absolute value
 round_score = calculate_score(difference) 
 
-print(f'\nResult: {result}')
-print(f'You were {difference} away from {hilo_choice}!')
+print(f'\n= {result}')
+print(f'\nYou were {difference} away from {hilo_choice}!')
 print(f'Round score: {round_score}')
 
 if round_score > high_score: # If the player's round score is greater than the high score

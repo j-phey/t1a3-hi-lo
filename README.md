@@ -31,6 +31,8 @@ Create a card game that focuses on problem solving and maths, where a player wil
 - The player will be handed seven cards, which consist of:
  - Four number cards (randomly chosen from 0 to 10)
  - Three operator cards (randomly chosen from +, -, ×, ÷) 
+ 
+ - Something about /reset
 
 ### Rules
 - Using these seven cards, the player must rearrange the seven cards into a valid equation, following the BODMAS order 
@@ -50,7 +52,7 @@ Create a card game that focuses on problem solving and maths, where a player wil
 - The player will get a max of 100 points per round for getting exactly Hi or Lo, and the round score will reduce as they get further away from Hi or Lo
 
 ### Assume
-- Dividing a number by 0 will equate to 0 (`y ÷ 0 = 0`)
+- Dividing by zero (0) is not allowed
 - The equation doesn't need to be a whole number and can be a value with decimal places
 
 ***Some stretch goals or things I want to explore, but not sure if I know how to implement:***
