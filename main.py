@@ -48,7 +48,14 @@ print('\nChoose the order to play your cards...')
 
 while len(played_cards) < 7: # While the players list of played cards is less than 7 cards...
     try: # Try this, and print the except at the bottom if it's not valid
-        entered_card_number = int(input(f'\nEnter card #{len(played_cards)+1} to play: ')) # Store the players input as an entered_card_number int
+        user_input = input(f'\nEnter card #{len(played_cards)+1} to play: ') # Store the players input as an entered_card_number int
+        
+        if user_input.lower() == '/reset': # Allow the user to /reset the current equation at any point
+            played_cards = []
+            print('Equation reset. You can start again.')
+            continue
+
+        entered_card_number = int(user_input)
 
         if 1 <= entered_card_number <= 7: # If input is in between 1 and 7 (incl.), add that card to the players hand
             chosen_card = player_hand[entered_card_number-1]
