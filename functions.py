@@ -1,5 +1,4 @@
 import random # Importing in-built Random Python module for shuffling the cards
-from sympy import sympify
 
 # --- CLASSES ---
 
@@ -9,6 +8,15 @@ class Card:
         self.card_type = card_type # Holds the type of card, i.e. number or operator
 
 # --- FUNCTIONS ---
+
+# Function for loading and maintaing the high score file
+def load_high_score():
+    try:
+        with open('high_score.txt', 'r') as f: # Open the high score file as read only
+            high_score = int(f.read()) # Convert the read content into an int
+    except FileNotFoundError: # If no high_score file found, set high_score to 0
+        high_score = 0
+    return high_score
 
 # Function for creating the initial deck of cards
 def deck(): 

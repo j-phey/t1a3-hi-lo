@@ -1,5 +1,8 @@
 # --- IMPORT CLASSES, MODULES AND PACKAGES ---
-from functions import Card, deck, shuffle_deck, deal_cards, calculate_result, calculate_score
+from functions import Card, deck, shuffle_deck, deal_cards, calculate_result, calculate_score, load_high_score
+
+# --- DEFINING VARIABLES ---
+high_score = 0
 
 # --- CREATE DECK OF CARDS ---
 
@@ -92,13 +95,19 @@ result = calculate_result(" ".join(str(card.value) for card in played_cards))
 
 # -- CALCULATE DIFFERENCE BETWEEN EQUATION AND Hi/Lo
 
-difference = abs(result - target)
-score = calculate_score(difference)
+difference = abs(result - target) # Want difference to be an absolute value
+round_score = calculate_score(difference) 
 
 print(f'\nResult: {result}')
 print(f'You were {difference} away from {hilo_choice}!')
-print(f'Score {score}')
+print(f'Round score: {round_score}')
 
+if round_score > high_score: # If the player's round score is greater than the high score
+    high_score = round_score # Save the round score as the high score
+    print(f'New high score! {high_score}')
+
+    with open('high_score.txt', 'w') as f: # Print the new high score to a file to maintain the high score
+        f.write(str(high_score))
 
 # ------- Print statements to test output ---------
 # print('Number cards:')
