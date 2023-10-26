@@ -81,3 +81,47 @@ def calculate_result(equation):
             return 'This is not a valid result. Please try again.'
     except:
         return 'This is not a valid equation'
+
+# Function for scoring scale
+
+def calculate_score(difference):
+    if difference == 0:
+        return 100
+    elif difference <= 0.5:
+        return 95
+    elif difference <= 1:
+        return 90
+    elif difference <= 1.5:
+        return 85
+    elif difference <= 2:
+        return 80
+    elif difference <= 2.5:
+        return 75
+    elif difference <= 3:
+        return 70
+    elif difference <= 3.5:
+        return 65
+    elif difference <= 4:
+        return 60
+    elif difference <= 4.5:
+        return 55
+    elif difference <= 5:
+        return 50
+    elif difference <= 5.5:
+        return 45
+    elif difference <= 6:
+        return 40
+    elif difference <= 6.5:
+        return 35
+    elif difference <= 7:
+        return 30
+    elif difference <= 7.5:
+        return 25
+    elif difference <= 8:
+        return 20
+    elif difference <= 8.5:
+        return 15
+    elif difference <= 9:
+        return 10
+    else: 
+        return 5

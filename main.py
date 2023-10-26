@@ -1,5 +1,5 @@
 # --- IMPORT CLASSES, MODULES AND PACKAGES ---
-from functions import Card, deck, shuffle_deck, deal_cards, calculate_result
+from functions import Card, deck, shuffle_deck, deal_cards, calculate_result, calculate_score
 
 # --- CREATE DECK OF CARDS ---
 
@@ -89,7 +89,16 @@ for card in played_cards:
 # --- CALCULATE EQUATION RESULT---
 
 result = calculate_result(" ".join(str(card.value) for card in played_cards))
+
+# -- CALCULATE DIFFERENCE BETWEEN EQUATION AND Hi/Lo
+
+difference = abs(result - target)
+score = calculate_score(difference)
+
 print(f'\nResult: {result}')
+print(f'You were {difference} away from {hilo_choice}!')
+print(f'Score {score}')
+
 
 # ------- Print statements to test output ---------
 # print('Number cards:')
