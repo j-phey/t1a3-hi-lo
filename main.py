@@ -4,7 +4,7 @@ from rich import * # Importing rich for further text formatting (package #2)
 from rich.console import Console
 from colorama import Fore, Back, Style, init # Importing colorama to colour input text (package #3)
 init()
-from art import * # Importing art for various ASCII art used in game (package #4)
+from art import * # Importing art for ASCII banner (package #4)
 
 # --- DEFINING VARIABLES ---
 console = Console()
@@ -16,7 +16,7 @@ equation_display = ""
 tprint("HI-LO",font="tarty1")
 
 # --- MAIN GAME LOOP ---
-play_game = True
+play_game = True # Remain true until player types /quit at the end
 
 while play_game:
 
