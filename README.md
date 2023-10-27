@@ -8,6 +8,8 @@
 ### How to install
 
 - pip install colorama
+- pip install rich
+- ./run_game.sh
 
 ### Implementation Plan
 
