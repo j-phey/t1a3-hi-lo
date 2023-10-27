@@ -37,14 +37,13 @@ while play_game:
             player_hand = [] # Creates an empty hand or list for the player
             deal_cards(player_hand, shuffled_deck) # From the now shuffled deck, deals the cards into the players hand 
 
-            print('\nYour current hand:\n')
+            print('\nHere are your cards! Make an equation equal or closest to [bold cyan]Hi (20)[/bold cyan] or [bold yellow]Lo (1)[/bold yellow]:\n')
             for index, card in enumerate(player_hand):
-                console.print(f'{index+1}: {card.value}', highlight=False) # Prevent rich from colouring the index numbers
+                console.print(f'[dim]{index+1}[/dim]: [green]{card.value}[/green]', highlight=False) # Prevent rich from colouring the index numbers
 
             # --- USER INPUT: HI OR LO CHOICE ---
 
-            print('\nMake an equation closest to [bold cyan]Hi (20)[/bold cyan] or [bold yellow]Lo (1)[/bold yellow]')
-            hilo_choice = input('Type ' + Fore.CYAN + 'Hi ' + Style.RESET_ALL + 'or ' + Fore.YELLOW + 'Lo ' + Style.RESET_ALL + 'and hit Enter: ')
+            hilo_choice = input('\nType ' + Fore.CYAN + 'Hi ' + Style.RESET_ALL + 'or ' + Fore.YELLOW + 'Lo ' + Style.RESET_ALL + 'and hit Enter: ')
 
             while hilo_choice.lower() not in ['hi', 'lo']: # lower() ensures that Hi/hi and Lo/lo are accepted as input
                 hilo_choice = input('Type ' + Fore.CYAN + 'Hi ' + Style.RESET_ALL + 'or ' + Fore.YELLOW + 'Lo ' + Style.RESET_ALL + 'and hit Enter: ')
@@ -61,7 +60,10 @@ while play_game:
 
             played_cards = [] # Create an empty list for the player to hold their inputted equation
 
-            print(f'\nYou chose [bold magenta]{hilo_choice}[/bold magenta]! Choose the order to play your cards..')
+            if hilo_choice.lower() == 'hi':
+                console.print(f'\nYou chose [bold cyan]{hilo_choice}[/bold cyan]! Type the card (1-7) and hit Enter to place it.', highlight=False)
+            else:
+                console.print(f'\nYou chose [bold yellow]{hilo_choice}[/bold yellow]! Type the card (1-7) and hit Enter to place it.', highlight=False)
 
             # --- PERFORM CHECKS ON USER INPUT ---
 
@@ -106,7 +108,7 @@ while play_game:
 
                         # Updating the current equation being displayed
                         current_equation = " ".join(str(card.value) for card in played_cards)
-                        equation_display = print(f'\nCurrent equation: {current_equation}')
+                        equation_display = console.print(f'\nCurrent equation: {current_equation}', highlight=False)
                             
                     else: # If input is not between 1 and 7 (incl.), tell the player
                         print('\nPlease enter a number from 1 to 7')
@@ -146,26 +148,3 @@ while play_game:
             if play_again.lower() == '/quit': # Break the game loop if they type quit
                 play_game = False
                 break
-
-
-
-# ------- Print statements to test output ---------
-# print('Number cards:')
-# for card in number_cards:
-#     print(f'{card.value} ', end=' ') # Using 'end' to print across a horizontal line
-
-# print('\n\nOperator cards:')
-# for card in operator_cards:
-#     print(f'{card.value} ', end=' ')
-
-# print(f'\n\nShuffled deck:')
-# for card in deck_of_cards:
-#     print(f'{card.value} ', end=' ')
-
-# print(f'\n\nPlayers hand:')
-# for card in player_hand:
-#     print(f'{card.value} ', end=' ')
-
-# print(f'\n\nRemaining cards in deck:')
-# for card in shuffled_deck:
-#     print(f'{card.value} ', end=' ')
