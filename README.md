@@ -7,6 +7,7 @@
 
 ### How to install
 
+- python3 main.py
 - pip install colorama
 - pip install rich
 - ./run_game.sh
@@ -37,6 +38,8 @@ Create a card game that focuses on problem solving and maths, where a player wil
  - Three operator cards (randomly chosen from +, -, ×, ÷) 
  
  - Something about /reset
+ - Type /quit at the end of round to exit game
+ - Can always exit with Ctrl+Z
 
 ### Rules
 - Using these seven cards, the player must rearrange the seven cards into a valid equation, following the BODMAS order 
