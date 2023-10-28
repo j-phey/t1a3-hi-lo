@@ -7,19 +7,18 @@ from functions import *
 def test_deck_initialization():
     number_cards, operator_cards = deck()
 
-    assert len(number_cards) == 11  
-    assert len(operator_cards) == 4  
+    assert len(number_cards) == 11
+    assert len(operator_cards) == 4
 
 # --- FUNCTION TEST ---
 
-# Test if calculate_score() returns the correct score for a given difference from hi or lo
-def test_calculate_score(): 
-    
+# Test if calculate_score() returns correct score for a difference
+def test_calculate_score():
     score = calculate_score(0.2)
-    assert score == 95  
+    assert score == 95
 
     score = calculate_score(4.3)
-    assert score == 55  
+    assert score == 55
 
 # Test calculate_result() to ensure equations are calculated correctly
 def test_calculate_result():
