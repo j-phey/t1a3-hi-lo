@@ -67,9 +67,9 @@ if __name__ == "__main__": # Separates the code from when it's being used by pyt
                 played_cards = [] # Create an empty list for the player to hold their inputted equation
 
                 if hilo_choice.lower() == 'hi':
-                    console.print(f'\nYou chose [bold cyan]{hilo_choice}[/bold cyan]! Type the card ([dim bold]1-7[/dim bold]) and hit Enter to place it. Type [blue]/reset[/blue] to restart your placed cards.', highlight=False)
+                    console.print(f'\nYou chose [bold cyan]{hilo_choice}[/bold cyan]! Type the card ([dim bold]1-7[/dim bold]) and hit Enter to place it. Type [purple]/reset[/purple] to restart your placed cards.', highlight=False)
                 else:
-                    console.print(f'\nYou chose [bold yellow]{hilo_choice}[/bold yellow]! Type the card ([dim bold]1-7[/dim bold]) and hit Enter to place it. Type [blue]/reset[/blue] to restart your placed cards.', highlight=False)
+                    console.print(f'\nYou chose [bold yellow]{hilo_choice}[/bold yellow]! Type the card ([dim bold]1-7[/dim bold]) and hit Enter to place it. Type [purple]/reset[/purple] to restart your placed cards.', highlight=False)
 
                 # --- PERFORM CHECKS ON USER INPUT ---
 
