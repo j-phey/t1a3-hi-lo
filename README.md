@@ -27,12 +27,12 @@
 
 ### How to install
 
-- 
+1. Download the game files from [GitHub](https://github.com/jjjjjjpppppp/t1a3-hi-lo)
+   - On the GitHub page, click on `Code` > `Download Zip`
+   ![Download instructions](./docs/download.png 'Plan screenshot 2023-10-19_5.39.17pm')
+2. Open a new Terminal window and use `cd` to navigate to the `src` folder downloaded. 
+3. Run bash launch.sh
 
-- python3 main.py
-- pip install colorama
-- pip install rich
-- ./run_game.sh
 
 ### Software development and implementation plan
 
@@ -64,16 +64,13 @@
 - 28 October 2023
 ![Plan screenshot 14](./docs/2023-10-28_5.06.56pm.png 'Plan screenshot 2023-10-28_5.06.56pm')
 
-### Tech stack
+ADD LAST SCREENSHOT HERE
 
-- **Programming language:** Python
-- **Version control:** [GitHub](https://github.com/jjjjjjpppppp/)
-- **Project management:** [Linear](https://linear.app/)
-- **Slide deck:** [Google Slides](https://workspace.google.com/intl/en/products/slides/)
+### Hardware / software requirements
 
-
-
-### Hardware requirements
+- 100MB free disk space
+- Python 3 or higher
+- Terminal application that can support `bash` scripts and Python
 
 ### Description
 Create a card game that focuses on problem solving and maths, where a player will attempt to rearrange a dealt hand of number cards and operators to create an equation that is closest to 20 or 1
@@ -115,6 +112,13 @@ Create a card game that focuses on problem solving and maths, where a player wil
 - colorama==0.4.6
 - rich==13.6.0
 - art==6.1
+
+### Tech stack
+
+- **Programming language:** Python, shell
+- **Version control:** [GitHub](https://github.com/jjjjjjpppppp/)
+- **Project management:** [Linear](https://linear.app/)
+- **Slide deck:** [Google Slides](https://workspace.google.com/intl/en/products/slides/)
 
 ### References
 
