@@ -29,12 +29,36 @@
 
 1. Download the game files from [GitHub](https://github.com/jjjjjjpppppp/t1a3-hi-lo)
    - On the GitHub page, click on `Code` > `Download Zip`
-   ![Download instructions](./docs/download.png 'Plan screenshot 2023-10-19_5.39.17pm')
+   ![Download instructions](./docs/download.png 'Download instructions')
 2. Open a new Terminal window and use `cd` to navigate to the 't1a3-hi-lo-main' > 'src' folder downloaded. 
 3. Once the Terminal is in the right 'src' folder, run ```bash launch.sh```
    - This command will look for Python, activate a virtual environment and install the required dependencies to run the game.
-4. If `bash launch.sh` is successfully run with all the necessary packages installed, the Hi-Lo game should begin right away. You should see this screen:
+4. If `bash launch.sh` is successfully run with all the necessary packages installed, the Hi-Lo game should begin right away. You should see this welcome message:
+   ![Welcome screen](./docs/welcome.png 'Welcome screen')
 
+### How to play
+- The player will be handed seven cards, which consist of:
+  - Four number cards (randomly chosen from 0 to 10)
+  - Three operator cards (randomly chosen from +, -, ×, ÷) 
+- Once the cards have been dealt, choose Hi or Lo to make an equation that is closest to 20 or 1 respectively
+- Place cards one-by-one by entering the corresponding number for each card
+- Once an equation is successfully made, a score will be given, depending on how close the player gets to Hi (20) or Lo (1)
+- The player's high score will be updated when it's beaten!
+
+### Rules
+- When making an equation, type `/reset` to restart the equation
+- At the end of the round, type `/quit` to exit out of the app
+- A number card must be placed first, followed by an operator, and so on, until a valid equation is made
+- Dividing by zero (0) is not allowed
+- The equation doesn't need to amount to a whole number and can be a value with decimal places
+
+### Hardware / software requirements
+
+- 100MB free disk space
+- Python 3 or higher
+- Terminal application that can support `bash` scripts and Python
+
+## How Hi-Lo was built
 
 ### Software development and implementation plan
 
@@ -65,47 +89,8 @@
 ![Plan screenshot 13](./docs/2023-10-27_12.09.46pm.png 'Plan screenshot 2023-10-27_12.09.46pm')
 - 28 October 2023
 ![Plan screenshot 14](./docs/2023-10-28_5.06.56pm.png 'Plan screenshot 2023-10-28_5.06.56pm')
-
-ADD LAST SCREENSHOT HERE
-
-### Hardware / software requirements
-
-- 100MB free disk space
-- Python 3 or higher
-- Terminal application that can support `bash` scripts and Python
-
-### Description
-Create a card game that focuses on problem solving and maths, where a player will attempt to rearrange a dealt hand of number cards and operators to create an equation that is closest to 20 or 1
-
-### How to play
-- The player will be handed seven cards, which consist of:
- - Four number cards (randomly chosen from 0 to 10)
- - Three operator cards (randomly chosen from +, -, ×, ÷) 
- 
- - Something about /reset
- - Type /quit at the end of round to exit game
- - Can always exit with Ctrl+Z
-
-### Rules
-- Using these seven cards, the player must rearrange the seven cards into a valid equation, following the BODMAS order 
-- After the player receives their four number cards and three operator cards, they will choose to 'bet' on **Hi** or **Lo**, where 
-  - **Hi** means they will attempt to make an equation that is closest to the value 20, and 
-  - **Lo** means they will make an equation that is closest to the value of 1
-- Once Hi or Lo is chosen, using their dealt hand, the player will input their equation from left to right 
-- The output will include:
-  - Hi / Lo chosen 
-  - The entered equation and what it equates to
-  - The difference between Hi / Lo and the created equation
-     - The difference will always be shown as a positive number
-  - The score for the round and total score so far
-
-### Scoring *(I'm still thinking through this...)*
-- Total score will be based on three rounds of Hi-Lo
-- The player will get a max of 100 points per round for getting exactly Hi or Lo, and the round score will reduce as they get further away from Hi or Lo
-
-### Assume
-- Dividing by zero (0) is not allowed
-- The equation doesn't need to be a whole number and can be a value with decimal places
+- 29 October 2023
+![Plan screenshot 15](./docs/2023-10-29_6.01.26pm.png 'Plan screenshot 2023-10-29_6.01.26pm')
 
 ### Programming language style Guide
 [PEP 8](https://peps.python.org/pep-0008/) – Style Guide for Python Code 
