@@ -10,7 +10,7 @@ fi
 # Check if the virtual environment (.venv) exists
 if [ ! -d .venv ]; then
     echo 'Creating a virtual environment...'
-    python -m venv .venv
+    python3 -m venv .venv
 fi
 
 # Activates the virtual environment
@@ -20,7 +20,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Run the main game code
-python main.py
+python3 main.py
 
 # Deactivates the virtual environment when the game is exited
 deactivate

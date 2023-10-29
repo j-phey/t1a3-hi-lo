@@ -30,8 +30,10 @@
 1. Download the game files from [GitHub](https://github.com/jjjjjjpppppp/t1a3-hi-lo)
    - On the GitHub page, click on `Code` > `Download Zip`
    ![Download instructions](./docs/download.png 'Plan screenshot 2023-10-19_5.39.17pm')
-2. Open a new Terminal window and use `cd` to navigate to the `src` folder downloaded. 
-3. Run bash launch.sh
+2. Open a new Terminal window and use `cd` to navigate to the 't1a3-hi-lo-main' > 'src' folder downloaded. 
+3. Once the Terminal is in the right 'src' folder, run ```bash launch.sh```
+   - This command will look for Python, activate a virtual environment and install the required dependencies to run the game.
+4. If `bash launch.sh` is successfully run with all the necessary packages installed, the Hi-Lo game should begin right away. You should see this screen:
 
 
 ### Software development and implementation plan
